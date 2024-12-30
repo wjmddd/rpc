@@ -1,12 +1,9 @@
 package Client.proxy;
 
-import Client.IOClient;
 import Client.rpcClient.RpcClient;
 import Client.rpcClient.impl.NettyRpcClient;
-import Client.rpcClient.impl.SimpleSocketRpcCilent;
 import common.message.RpcRequest;
 import common.message.RpcResponse;
-import lombok.AllArgsConstructor;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -17,7 +14,7 @@ public class ClientProxy implements InvocationHandler {
     //传入参数service接口的class对象，反射封装成一个request
 
     private RpcClient rpcClient;
-    public ClientProxy(){
+    public ClientProxy() throws InterruptedException {
         rpcClient=new NettyRpcClient();
     }
 
